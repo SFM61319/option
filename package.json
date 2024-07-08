@@ -1,0 +1,26 @@
+{
+  "name": "@sfm61319/option",
+  "version": "0.1.0",
+  "description": "A TypeScript library to provide the Option sum type (inspired by Rust).",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SFM61319/option.git"
+  },
+  "keywords": [
+    "generic",
+    "library",
+    "option",
+    "rust",
+    "typescript"
+  ],
+  "author": "sfm61319",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SFM61319/option/issues"
+  },
+  "homepage": "https://github.com/SFM61319/option#readme"
+}
