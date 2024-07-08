@@ -50,6 +50,20 @@ export default class Option<T> {
   }
 
   /**
+   * Exchanges the value contained in this `Option` instance with the provided value,
+   * and returns a new `Option` instance containing the previous value.
+   *
+   * @param value The new value to be stored in this `Option` instance.
+   * @returns A new `Option` instance containing the previous value.
+   */
+  private _exchange(value: T | undefined): Option<T> {
+    const optb = new Option(this.value);
+    this.value = value;
+
+    return optb;
+  }
+
+  /**
    * Checks if this `Option` contains a value.
    *
    * @returns `true` if this `Option` contains a value, `false` otherwise.
@@ -329,10 +343,7 @@ export default class Option<T> {
    * the previous value of the current `Option` instance.
    */
   public take(): Option<T> {
-    const optb = new Option(this.value);
-    this.value = undefined;
-
-    return optb;
+    return this._exchange(undefined);
   }
 
   /**
@@ -344,10 +355,7 @@ export default class Option<T> {
    * the previous value of the current `Option` instance.
    */
   public replace(value: T): Option<T> {
-    const optb = new Option(this.value);
-    this.value = value;
-
-    return optb;
+    return this._exchange(value);
   }
 
   /**
