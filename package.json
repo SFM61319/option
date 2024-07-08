@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A TypeScript library to provide the Option sum type (inspired by Rust).",
   "main": "src/index.ts",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
