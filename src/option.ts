@@ -215,15 +215,14 @@ export default class Option<T> {
   }
 
   /**
-   * Combines the current `Option` instance with the provided
-   * `Option` instance `optb` using the `andThen` operation.
+   * Combines the current `Option` instance with the provided `Option` instance `optb` using the `and` operation.
    *
-   * If the current `Option` instance is `Some`, the provided `Option` instance
-   * `optb` is returned. Otherwise, a new `Option` instance with no value is returned.
+   * If the current `Option` instance is `Some`, the provided `Option` instance `optb` is returned.
+   * Otherwise, a new `Option` instance with no value is returned.
    *
    * @template U The type of the value that the resulting `Option` will contain.
    * @param optb The `Option` instance to combine with the current `Option` instance.
-   * @returns The resulting `Option` instance after applying the `andThen` operation.
+   * @returns The resulting `Option` instance after applying the `and` operation.
    */
   public and<U>(optb: Option<U>): Option<U> {
     return this.andThen(() => optb);
