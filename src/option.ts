@@ -166,7 +166,7 @@ export default class Option<T> {
    * @returns A new `Option` instance containing the result of applying `f` to the value.
    */
   public map<U>(f: (value: T) => U): Option<U> {
-    return this.isSome() ? new Option(f(this.value)) : new Option();
+    return this.isSome() ? Option.some(f(this.value)) : Option.none();
   }
 
   /**
@@ -240,7 +240,7 @@ export default class Option<T> {
    * if the current `Option` is `None`.
    */
   public andThen<U>(f: (value: T) => Option<U>): Option<U> {
-    return this.isSome() ? f(this.value) : new Option();
+    return this.isSome() ? f(this.value) : Option.none();
   }
 
   /**
@@ -254,7 +254,7 @@ export default class Option<T> {
    * or a new `Option` instance with no value if the predicate function returns `false` or the `Option` is `None`.
    */
   public filter(predicate: (value: T) => boolean): Option<T> {
-    return this.isSomeAnd(predicate) ? this : new Option();
+    return this.isSomeAnd(predicate) ? this : Option.none();
   }
 
   /**
@@ -297,7 +297,7 @@ export default class Option<T> {
    * @returns The resulting `Option` instance after applying the `xor` operation.
    */
   public xor(optb: Option<T>): Option<T> {
-    return this.isSome() ? (optb.isNone() ? this : new Option()) : optb;
+    return this.isSome() ? (optb.isNone() ? this : Option.none()) : optb;
   }
 
   /**
@@ -370,7 +370,7 @@ export default class Option<T> {
    */
   public zip<U>(other: Option<U>): Option<[T, U]> {
     return this.isSome() && other.isSome()
-      ? new Option([this.value, other.value])
-      : new Option();
+      ? Option.some([this.value, other.value])
+      : Option.none();
   }
 }
